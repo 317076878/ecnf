@@ -1,0 +1,7 @@
+apiVersion: v1
+data:
+  key: QVFEZU5IWmpBQUFBQUJBQWUreVN0dXdEL25qMStIUHhvQ2hpS0E9PQo=
+kind: Secret
+metadata:
+  name: pvc-ceph-client-key
+type: kubernetes.io/rbd

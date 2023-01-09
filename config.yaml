@@ -1,0 +1,88 @@
+name: ecnf-load
+
+namespace:
+  number: 1
+
+tuningSets:
+- name: Sequence
+  parallelismLimitedLoad:
+    parallelismLimit: 1
+
+- name: default
+  globalQPSLoad:
+    qps: 1
+    burst: 1
+
+steps:
+
+# - module:
+#     path: modules/ceph-secret/main.yaml
+#     params:
+#       actionName: "create"
+#       namespaces: 1
+#       tuningSet: Sequence
+#       operationTimeout: 15m
+
+# - module:
+#     path: modules/wordpress/main.yaml
+#     params:
+#       actionName: "create"
+#       namespaces: 1
+#       tuningSet: Sequence
+#       operationTimeout: 15m
+
+- module:
+    path: modules/clusterip/main.yaml
+    params:
+      actionName: "create"
+      namespaces: 1
+      tuningSet: Sequence
+      operationTimeout: 15m
+
+- module:
+    path: modules/nodeport/main.yaml
+    params:
+      actionName: "create"
+      namespaces: 1
+      tuningSet: Sequence
+      operationTimeout: 15m
+
+- module:
+    path: modules/ingress/main.yaml
+    params:
+      actionName: "create"
+      namespaces: 1
+      tuningSet: Sequence
+      operationTimeout: 15m
+
+- module:
+    path: modules/nginx-env/main.yaml
+    params:
+      actionName: "create"
+      namespaces: 1
+      tuningSet: Sequence
+      operationTimeout: 15m
+
+- module:
+    path: modules/nginx-html/main.yaml
+    params:
+      actionName: "create"
+      namespaces: 1
+      tuningSet: Sequence
+      operationTimeout: 15m
+
+- module:
+    path: modules/nginx-pvc/main.yaml
+    params:
+      actionName: "create"
+      namespaces: 1
+      tuningSet: Sequence
+      operationTimeout: 15m
+
+- module:
+    path: modules/test-demo/main.yaml
+    params:
+      actionName: "create"
+      namespaces: 1
+      tuningSet: Sequence
+      operationTimeout: 15m

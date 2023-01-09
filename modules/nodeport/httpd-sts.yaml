@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: httpd-sts
+  labels:
+    group: nodeport
+spec:
+  podManagementPolicy: OrderedReady
+  replicas: 2
+  selector:
+    matchLabels:
+      workload.es.io: statefulset.httpd
+  serviceName: ''
+  template:
+    metadata:
+      annotations:
+        io.katacontainers.config.hypervisor.default_vcpus: '1'
+        ovn.kubernetes.io/logical_switch: ovn-default
+      creationTimestamp: null
+      labels:
+        workload.es.io: statefulset.httpd
+        group: nodeport
+    spec:
+      containers:
+        - image: 'httpd:latest'
+          name: httpd
+          resources:
+            limits:
+              cpu: 250m
+              memory: 512Mi
+              nvidia.com/gpu: '0'
+            requests:
+              cpu: 250m
+              memory: 512Mi
+              nvidia.com/gpu: '0'
+      runtimeClassName: rune

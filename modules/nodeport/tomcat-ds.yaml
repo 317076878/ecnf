@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: tomcat-ds
+  labels:
+    group: nodeport
+spec:
+  selector:
+    matchLabels:
+      workload.es.io: daemonset.tomcat
+  template:
+    metadata:
+      annotations:
+        io.katacontainers.config.hypervisor.default_vcpus: '1'
+        ovn.kubernetes.io/logical_switch: ovn-default
+      creationTimestamp: null
+      labels:
+        workload.es.io: daemonset.tomcat
+        group: nodeport
+    spec:
+      containers:
+        - image: 'tomcat:latest'
+          name: tomcat
+          resources:
+            limits:
+              cpu: 250m
+              memory: 512Mi
+              nvidia.com/gpu: '0'
+            requests:
+              cpu: 250m
+              memory: 512Mi
+              nvidia.com/gpu: '0'
+      nodeSelector:
+        secure-container: enabled
+      runtimeClassName: rune

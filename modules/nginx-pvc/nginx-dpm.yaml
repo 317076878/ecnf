@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-dpm
+  labels:
+    group: nginx-pvc
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      workload.es.io: deployment.nginx
+  template:
+    metadata:
+      labels:
+        workload.es.io: deployment.nginx
+        group: nginx-pvc
+      annotations:
+        io.katacontainers.config.hypervisor.default_vcpus: "1"
+        ovn.kubernetes.io/logical_switch: ovn-default
+    spec:
+      containers:
+        - image: 'nginx:latest'
+          name: nginx
+          volumeMounts:
+            - mountPath: /data
+              name: vol1
+      volumes:
+        - name: vol1
+          persistentVolumeClaim:
+            claimName: pvc-nginx
+      runtimeClassName: rune
+

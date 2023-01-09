@@ -1,0 +1,67 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: mariadb
+  labels:
+    group: wordpress
+spec:
+  podManagementPolicy: OrderedReady
+  replicas: 1
+  selector:
+    matchLabels:
+      workload.es.io: statefulset.mariadb
+  serviceName: ''
+  template:
+    metadata:
+      annotations:
+        io.katacontainers.config.hypervisor.default_vcpus: '1'
+        ovn.kubernetes.io/logical_switch: ovn-default
+      labels:
+        workload.es.io: statefulset.mariadb
+        group: wordpress
+    spec:
+      containers:
+      - name: mariadb
+        image: 'hub.ecns.io/library/mariadb:latest'
+        imagePullPolicy: IfNotPresent
+        resources:
+          limits:
+            cpu: '2'
+            memory: 2Gi
+            nvidia.com/gpu: '0'
+          requests:
+            cpu: '2'
+            memory: 2Gi
+            nvidia.com/gpu: '0'
+        ports:
+        - containerPort: 3306
+        env:
+        - name: MARIADB_ROOT_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: mariadb-secret
+              key: mariadb-root-password
+        - name: MARIADB_DATABASE
+          value: wordpress
+        volumeMounts:
+          - mountPath: /var/lib/mysql
+            name: mariadb-pv
+      runtimeClassName: rune
+      schedulerName: default-scheduler
+  updateStrategy:
+    rollingUpdate:
+      partition: 0
+    type: RollingUpdate
+  volumeClaimTemplates:
+    - apiVersion: v1
+      kind: PersistentVolumeClaim
+      metadata:
+        name: mariadb-pv
+      spec:
+        accessModes:
+          - ReadWriteOnce
+        resources:
+          requests:
+            storage: 10Gi
+        storageClassName: capacity
+        volumeMode: Filesystem
