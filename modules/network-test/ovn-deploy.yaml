@@ -2,16 +2,13 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    group: label-test
-    ABCDEFGHIJKLMNOPQRSTUVWXYZ-abcdefghijklmnopqrstuvwxyz_0.9.9.9.9: ABCDEFGHIJKLMNOPQRSTUVWXYZ-abcdefghijklmnopqrstuvwxyz_0.9.9.9.9
-    a: '1'
-    app: foo
-  name: labels-test-deploy
+    group: network-test
+  name: ovn-deploy
 spec:
   replicas: 1
   selector:
     matchLabels:
-      workload.es.io: deployment.labels-test-deploy
+      workload.es.io: deployment.ovn-deploy
   template:
     metadata:
       annotations:
@@ -19,13 +16,12 @@ spec:
         ovn.kubernetes.io/logical_switch: ovn-default
       creationTimestamp: null
       labels:
-        workload.es.io: deployment.labels-test-deploy
-        group: label-test
+        workload.es.io: deployment.ovn-deploy
+        group: network-test
     spec:
       containers:
         - image: 'nginx:latest'
           imagePullPolicy: IfNotPresent
-          name: labels-test-deploy
+          name: ovn-deploy
       runtimeClassName: rune
-        
 

@@ -1,0 +1,113 @@
+{{$GROUP_NAME:= DefaultParam .GROUP_NAME "env-variable-test"}}
+
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    group: env-variable-test
+  name: env-variable-deploy
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      workload.es.io: deployment.env-variable-deploy
+  template:
+    metadata:
+      annotations:
+        io.katacontainers.config.hypervisor.default_vcpus: '1'
+        ovn.kubernetes.io/logical_switch: ovn-default
+      creationTimestamp: null
+      labels:
+        workload.es.io: deployment.env-variable-deploy
+        group: env-variable-test
+    spec:
+      containers:
+        - env:
+            - name: CommonVariableKey
+              value: CommonVariableValue
+            - name: ConfigMap
+              valueFrom:
+                configMapKeyRef:
+                  key: test
+                  name: test
+            - name: OpaqueKey
+              valueFrom:
+                secretKeyRef:
+                  key: test
+                  name: opaque-key
+            - name: TlsKey
+              valueFrom:
+                secretKeyRef:
+                  key: tls.crt
+                  name: tls-key
+            - name: DockerConfigJsonKey
+              valueFrom:
+                secretKeyRef:
+                  key: .dockerconfigjson
+                  name: dockerconfigjson-key
+            - name: FieldRef1
+              valueFrom:
+                fieldRef:
+                  apiVersion: v1
+                  fieldPath: metadata.name
+            - name: FieldRef2
+              valueFrom:
+                fieldRef:
+                  apiVersion: v1
+                  fieldPath: metadata.namespace
+            - name: FieldRef3
+              valueFrom:
+                fieldRef:
+                  apiVersion: v1
+                  fieldPath: spec.nodeName
+            - name: FieldRef4
+              valueFrom:
+                fieldRef:
+                  apiVersion: v1
+                  fieldPath: spec.erviceAccountName
+            - name: FieldRef5
+              valueFrom:
+                fieldRef:
+                  apiVersion: v1
+                  fieldPath: status.hostIP
+            - name: FieldRef6
+              valueFrom:
+                fieldRef:
+                  apiVersion: v1
+                  fieldPath: status.podIP
+            - name: ResourceFieldRef1
+              valueFrom:
+                resourceFieldRef:
+                  divisor: '0'
+                  resource: limits.cpu
+            - name: ResourceFieldRef2
+              valueFrom:
+                resourceFieldRef:
+                  divisor: '0'
+                  resource: limits.memory
+            - name: ResourceFieldRef3
+              valueFrom:
+                resourceFieldRef:
+                  divisor: '0'
+                  resource: limits.ephemeral-storage
+            - name: ResourceFieldRef4
+              valueFrom:
+                resourceFieldRef:
+                  divisor: '0'
+                  resource: requests.cpu
+            - name: ResourceFieldRef5
+              valueFrom:
+                resourceFieldRef:
+                  divisor: '0'
+                  resource: requests.memory
+            - name: ResourceFieldRef6
+              valueFrom:
+                resourceFieldRef:
+                  divisor: '0'
+                  resource: requests.ephemeral-storage
+          image: 'nginx:latest'
+          imagePullPolicy: IfNotPresent
+          name: ovn-deploy
+      runtimeClassName: rune
+

@@ -1,0 +1,37 @@
+{{$BUSINESS_CONTAINER_NAME:= DefaultParam .BUSINESS_CONTAINER_NAME "te-1"}}
+{{$INIT_CONTAINER_NAME:= DefaultParam .INIT_CONTAINER_NAME "testtesttesttesttesttesttesttesttesttesttesttesttesttesttesttes}}
+{{$GROUP_NAME:= DefaultParam .GROUP_NAME "name-type-test"}}
+
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    group: {{$GROUP_NAME}}
+  name: name-type-test-deploy
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      workload.es.io: deployment.name-type-test-deploy
+  template:
+    metadata:
+      annotations:
+        io.katacontainers.config.hypervisor.default_vcpus: '1'
+        ovn.kubernetes.io/logical_switch: ovn-default
+      creationTimestamp: null
+      labels:
+        workload.es.io: deployment.name-type-test-deploy
+        group: {{$GROUP_NAME}}
+    spec:
+      containers:
+        - image: 'nginx:latest'
+          imagePullPolicy: IfNotPresent
+          name: {{$BUSINESS_CONTAINER_NAME}}
+      initContainers:
+        - image: 'nginx:latest'
+          imagePullPolicy: IfNotPresent
+          name: {{$INIT_CONTAINER_NAME}}
+      runtimeClassName: rune
+        
+
