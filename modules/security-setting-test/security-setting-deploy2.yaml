@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    group: security-setting-test
+  name: security-setting-deploy2
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      workload.es.io: deployment.security-setting-deploy2
+  template:
+    metadata:
+      annotations:
+        io.katacontainers.config.hypervisor.default_vcpus: '1'
+        ovn.kubernetes.io/logical_switch: ovn-default
+      creationTimestamp: null
+      labels:
+        workload.es.io: deployment.security-setting-deploy2
+        group: security-setting-test
+    spec:
+      containers:
+        - image: 'nginx:latest'
+          imagePullPolicy: IfNotPresent
+          name: security-setting-deploy2
+          securityContext:
+            readOnlyRootFilesystem: false
+            runAsGroup: 65534
+            runAsNonRoot: true
+            runAsUser: 1
+      runtimeClassName: rune
+        
+
+
+        
+

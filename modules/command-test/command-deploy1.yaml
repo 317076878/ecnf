@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    group: command-test
+  name: command-deploy1
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      workload.es.io: deployment.command-deploy1
+  template:
+    metadata:
+      annotations:
+        io.katacontainers.config.hypervisor.default_vcpus: '1'
+        ovn.kubernetes.io/logical_switch: ovn-default
+      creationTimestamp: null
+      labels:
+        workload.es.io: deployment.command-deploy1
+        group: command-test
+    spec:
+      containers:
+        - args:
+            - '-c'
+            - sleep 10
+          command:
+            - bash
+          image: 'nginx:latest'
+          imagePullPolicy: IfNotPresent
+          name: command-deploy1
+      runtimeClassName: rune
