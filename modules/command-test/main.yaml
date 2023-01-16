@@ -21,12 +21,12 @@ steps:
     replicasPerNamespace: 1
     tuningSet: {{.tuningSet}}
     objectBundle:
-    - basename: command-test-deploy1
-      objectTemplatePath: modules/command-test/command-test-deploy1.yaml
-    - basename: command-test-deploy2
-      objectTemplatePath: modules/command-test/command-test-deploy2.yaml
-    - basename: command-test-deploy3
-      objectTemplatePath: modules/command-test/command-test-deploy3.yaml
+    - basename: command-deploy1
+      objectTemplatePath: modules/command-test/command-deploy1.yaml
+    - basename: command-deploy2
+      objectTemplatePath: modules/command-test/command-deploy2.yaml
+    - basename: command-deploy3
+      objectTemplatePath: modules/command-test/command-deploy3.yaml
 
 - name: Waiting for security-setting-test-deploy application setup to be completed
   measurements:

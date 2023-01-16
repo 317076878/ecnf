@@ -21,14 +21,14 @@ steps:
     replicasPerNamespace: 1
     tuningSet: {{.tuningSet}}
     objectBundle:
-    - basename: ovn-deploy
-      objectTemplatePath: modules/health-check-http-test/health-check-deploy.yaml
-    - basename: ovn-deploy
-      objectTemplatePath: modules/health-check-https-test/health-check-deploy.yaml
-    - basename: ovn-deploy
-      objectTemplatePath: modules/health-check-tcp-test/health-check-deploy.yaml
-    - basename: ovn-deploy
-      objectTemplatePath: modules/health-check-command-test/health-check-deploy.yaml
+    - basename: health-check-http-deploy
+      objectTemplatePath: modules/health-check-test/health-check-http-deploy.yaml
+    - basename: health-check-https-deploy
+      objectTemplatePath: modules/health-check-test/health-check-https-deploy.yaml
+    - basename: health-check-tcp-deploy
+      objectTemplatePath: modules/health-check-test/health-check-tcp-deploy.yaml
+    - basename: health-check-command-deploy
+      objectTemplatePath: modules/health-check-test/health-check-command-deploy.yaml
 
 - name: Waiting for health-check-test-deploy application setup to be completed
   measurements:

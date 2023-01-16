@@ -27,8 +27,6 @@ steps:
       objectTemplatePath: modules/security-setting-test/security-setting-deploy2.yaml
     - basename: security-setting-deploy3
       objectTemplatePath: modules/security-setting-test/security-setting-deploy3.yaml
-    - basename: security-setting-deploy4
-      objectTemplatePath: modules/security-setting-test/security-setting-deploy4.yaml
 
 - name: Waiting for security-setting-test-deploy application setup to be completed
   measurements:

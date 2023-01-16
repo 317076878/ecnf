@@ -22,7 +22,7 @@ steps:
     tuningSet: {{.tuningSet}}
     objectBundle:
     - basename: nginx-deploy
-      objectTemplatePath: modules/label-test/name-type-test-deploy.yaml
+      objectTemplatePath: modules/name-type-test/name-type-test-deploy.yaml
 
 - name: Waiting for name-type-test-deploy application setup to be completed
   measurements:

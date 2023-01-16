@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    group: upgrade-strategy-test
+  name: upgrade-strategy-deploy7
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      workload.es.io: deployment.upgrade-strategy-deploy7
+  strategy:
+    rollingUpdate:
+      maxSurge: 0
+      maxUnavailable: 111
+    type: RollingUpdate
+  template:
+    metadata:
+      annotations:
+        io.katacontainers.config.hypervisor.default_vcpus: '1'
+        ovn.kubernetes.io/logical_switch: ovn-default
+      creationTimestamp: null
+      labels:
+        workload.es.io: deployment.upgrade-strategy-deploy7
+        group: upgrade-strategy-test
+    spec:
+      containers:
+        - image: 'hub.ecns.io/library/nginx:latest'
+          imagePullPolicy: IfNotPresent
+          name: upgrade-strategy-deploy7
+      runtimeClassName: rune

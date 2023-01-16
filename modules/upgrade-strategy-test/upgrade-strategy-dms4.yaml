@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  labels:
+    group: upgrade-strategy-test
+  name: upgrade-strategy-dms4
+spec:
+  selector:
+    matchLabels:
+      workload.es.io: daemonset.upgrade-strategy-dms4
+  template:
+    metadata:
+      annotations:
+        io.katacontainers.config.hypervisor.default_vcpus: '1'
+        ovn.kubernetes.io/logical_switch: ovn-default
+      creationTimestamp: null
+      labels:
+        workload.es.io: daemonset.upgrade-strategy-dms4
+    spec:
+      containers:
+        - image: 'hub.ecns.io/library/nginx:latest'
+          imagePullPolicy: IfNotPresent
+          name: upgrade-strategy-dms4
+      runtimeClassName: rune
+  updateStrategy:
+    rollingUpdate:
+      maxUnavailable: 1
+    type: OnDelete

@@ -1,0 +1,32 @@
+name: ecnf-load
+
+namespace:
+  number: 1
+
+tuningSets:
+- name: Sequence
+  parallelismLimitedLoad:
+    parallelismLimit: 1
+
+- name: default
+  globalQPSLoad:
+    qps: 1
+    burst: 1
+
+steps:
+
+ - module:
+     path: modules/ceph-secret/main.yaml
+     params:
+       actionName: "create"
+       namespaces: 1
+       tuningSet: Sequence
+       operationTimeout: 15m
+
+- module:
+    path: modules/name-type-test/main.yaml
+    params:
+      actionName: "create"
+      namespaces: 1
+      tuningSet: Sequence
+      operationTimeout: 15m

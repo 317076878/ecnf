@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: upgrade-strategy-sts2
+  labels:
+    group: upgrade-strategy-test
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      workload.es.io: statefulset.upgrade-strategy-sts2
+  template:
+    metadata:
+      annotations:
+        io.katacontainers.config.hypervisor.default_vcpus: '1'
+        ovn.kubernetes.io/logical_switch: ovn-default
+      creationTimestamp: null
+      labels:
+        workload.es.io: statefulset.upgrade-strategy-sts2
+    spec:
+      containers:
+        - image: 'hub.ecns.io/library/nginx:latest'
+          imagePullPolicy: IfNotPresent
+          name: upgrade-strategy-sts2
+  updateStrategy:
+    type: OnDelete
+      runtimeClassName: rune

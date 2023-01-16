@@ -20,7 +20,7 @@ spec:
         group: security-setting-test
     spec:
       containers:
-        - image: 'hub.ecns.io/library/nginx:latest'
+        - image: 'hub.ecns.io/library/centos:alltools'
           imagePullPolicy: IfNotPresent
           name: security-setting-deploy4
           securityContext:
