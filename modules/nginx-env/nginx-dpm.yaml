@@ -25,7 +25,7 @@ spec:
                 configMapKeyRef:
                   key: VERSION
                   name: nginx-configmap
-          image: 'nginx:latest'
+          image: 'hub.ecns.io/library/nginx:latest'
           name: nginx
       runtimeClassName: rune
 

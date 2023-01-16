@@ -1,5 +1,5 @@
 {{$BUSINESS_CONTAINER_NAME:= DefaultParam .BUSINESS_CONTAINER_NAME "te-1"}}
-{{$INIT_CONTAINER_NAME:= DefaultParam .INIT_CONTAINER_NAME "testtesttesttesttesttesttesttesttesttesttesttesttesttesttesttes}}
+{{$INIT_CONTAINER_NAME:= DefaultParam .INIT_CONTAINER_NAME "testtesttesttesttesttesttesttesttesttesttesttesttesttesttesttes"}}
 {{$GROUP_NAME:= DefaultParam .GROUP_NAME "name-type-test"}}
 
 
@@ -25,11 +25,11 @@ spec:
         group: {{$GROUP_NAME}}
     spec:
       containers:
-        - image: 'nginx:latest'
+        - image: 'hub.ecns.io/library/nginx:latest'
           imagePullPolicy: IfNotPresent
           name: {{$BUSINESS_CONTAINER_NAME}}
       initContainers:
-        - image: 'nginx:latest'
+        - image: 'hub.ecns.io/library/nginx:latest'
           imagePullPolicy: IfNotPresent
           name: {{$INIT_CONTAINER_NAME}}
       runtimeClassName: rune

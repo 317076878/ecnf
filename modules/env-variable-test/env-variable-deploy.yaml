@@ -106,7 +106,7 @@ spec:
                 resourceFieldRef:
                   divisor: '0'
                   resource: requests.ephemeral-storage
-          image: 'nginx:latest'
+          image: 'hub.ecns.io/library/nginx:latest'
           imagePullPolicy: IfNotPresent
           name: ovn-deploy
       runtimeClassName: rune

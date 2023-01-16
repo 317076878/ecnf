@@ -2,13 +2,13 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    group: network-test
-  name: ovn-deploy
+    group: access-type-test
+  name: nodeport-deploy
 spec:
   replicas: 1
   selector:
     matchLabels:
-      workload.es.io: deployment.ovn-deploy
+      workload.es.io: deployment.nodeport-deploy
   template:
     metadata:
       annotations:
@@ -16,12 +16,11 @@ spec:
         ovn.kubernetes.io/logical_switch: ovn-default
       creationTimestamp: null
       labels:
-        workload.es.io: deployment.ovn-deploy
-        group: network-test
+        workload.es.io: deployment.nodeport-deploy
+        group: access-type-test
     spec:
       containers:
         - image: 'hub.ecns.io/library/nginx:latest'
           imagePullPolicy: IfNotPresent
-          name: ovn-deploy
+          name: nodeport-deploy
       runtimeClassName: rune
-

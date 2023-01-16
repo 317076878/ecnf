@@ -25,7 +25,7 @@ spec:
             - sleep 10
           command:
             - bash
-          image: 'nginx:latest'
+          image: 'hub.ecns.io/library/nginx:latest'
           imagePullPolicy: IfNotPresent
           name: command-deploy1
       runtimeClassName: rune

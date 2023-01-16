@@ -19,7 +19,7 @@ spec:
         ovn.kubernetes.io/logical_switch: ovn-default
     spec:
       containers:
-        - image: 'nginx:latest'
+        - image: 'hub.ecns.io/library/nginx:latest'
           name: nginx
           volumeMounts:
             - mountPath: /usr/share/nginx/html

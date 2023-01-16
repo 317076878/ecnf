@@ -20,7 +20,7 @@ spec:
         group: health-check-test
     spec:
       containers:
-        - image: 'nginx:latest'
+        - image: 'hub.ecns.io/library/nginx:latest'
           imagePullPolicy: IfNotPresent
           name: health-check-http-deploy
           livenessProbe:

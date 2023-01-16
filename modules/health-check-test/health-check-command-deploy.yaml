@@ -23,7 +23,7 @@ spec:
         group: label-test
     spec:
       containers:
-        - image: 'nginx:latest'
+        - image: 'hub.ecns.io/library/nginx:latest'
           imagePullPolicy: IfNotPresent
           name: labels-test-deploy
       runtimeClassName: rune
