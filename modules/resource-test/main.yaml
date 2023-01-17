@@ -21,7 +21,7 @@ steps:
     replicasPerNamespace: 1
     tuningSet: {{.tuningSet}}
     objectBundle:
-    - basename: ovn-deploy
+    - basename: resource-deploy
       objectTemplatePath: modules/resource-test/resource-deploy.yaml
 
 - name: Waiting for resource-test-deploy application setup to be completed

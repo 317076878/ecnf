@@ -24,7 +24,15 @@ steps:
        operationTimeout: 15m
 
  - module:
-     path: modules/scheduling-strategy-test/main.yaml
+     path: modules/name-type-test/main.yaml
+     params:
+       actionName: "create"
+       namespaces: 1
+       tuningSet: Sequence
+       operationTimeout: 15m
+
+ - module:
+     path: modules/resource-test/main.yaml
      params:
        actionName: "create"
        namespaces: 1

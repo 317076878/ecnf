@@ -25,7 +25,7 @@ spec:
         group: {{$GROUP_NAME}}
     spec:
       containers:
-          image: 'hub.ecns.io/library/nginx:latest'
+        - image: 'hub.ecns.io/library/nginx:latest'
           imagePullPolicy: IfNotPresent
           name: {{$BUSINESS_CONTAINER_NAME}}
       initContainers:

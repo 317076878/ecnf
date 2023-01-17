@@ -4,15 +4,15 @@ steps:
   measurements:
   - Method: WaitForControlledPodsRunning
     Instances:
-    - Identifier: WaitForRunningStatefulSets
+    - Identifier: WaitForClusteripStatefulSets
       Params:
         apiVersion: apps/v1
         kind: StatefulSet
-    - Identifier: WaitForRunningDeployments
+    - Identifier: WaitForClusteripRunningDeployments
       Params:
         apiVersion: apps/v1
         kind: Deployment
-    - Identifier: WaitForRunningDaemonSet
+    - Identifier: WaitForClusteripRunningDaemonSet
       Params:
         apiVersion: apps/v1
         kind: DaemonSet
@@ -64,9 +64,9 @@ steps:
   measurements:
   - Method: WaitForControlledPodsRunning
     Instances:
-    - Identifier: WaitForRunningStatefulSets
-    - Identifier: WaitForRunningDeployments
-    - Identifier: WaitForRunningDaemonSet
+    - Identifier: WaitForClusteripRunningStatefulSets
+    - Identifier: WaitForClusteripRunningDeployments
+    - Identifier: WaitForClusteripRunningDaemonSet
     Params:
       action: gather
 

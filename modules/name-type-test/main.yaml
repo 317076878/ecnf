@@ -4,7 +4,7 @@ steps:
   measurements:
   - Method: WaitForControlledPodsRunning
     Instances:
-    - Identifier: WaitForRunningDeployments
+    - Identifier: NameTypeTest
       Params:
         apiVersion: apps/v1
         kind: Deployment
@@ -21,14 +21,14 @@ steps:
     replicasPerNamespace: 1
     tuningSet: {{.tuningSet}}
     objectBundle:
-    - basename: nginx-deploy
+    - basename: name-type-test-deploy
       objectTemplatePath: modules/name-type-test/name-type-test-deploy.yaml
 
 - name: Waiting for name-type-test-deploy application setup to be completed
   measurements:
   - Method: WaitForControlledPodsRunning
     Instances:
-    - Identifier: WaitForRunningDeployments
+    - Identifier: NameTypeTest
     Params:
       action: gather
 
