@@ -22,7 +22,7 @@ steps:
     tuningSet: {{.tuningSet}}
     objectBundle:
     - basename: html-configmap
-      objectTemplatePath: modules/nginx-html/html-configmap.yaml
+      objectTemplatePath: modules/nginx-html/nginx-configmap.yaml
 
 - name: Create nginx-html deploy
   phases:
