@@ -23,5 +23,6 @@ spec:
           imagePullPolicy: IfNotPresent
           name: upgrade-strategy-sts2
   updateStrategy:
-    type: OnDelete
+    rollingUpdate:
+      type: OnDelete
       runtimeClassName: rune

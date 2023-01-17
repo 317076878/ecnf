@@ -25,7 +25,7 @@ spec:
           name: security-setting-deploy2
           securityContext:
             readOnlyRootFilesystem: false
-            runAsGroup: 65534
+            runAsGroup: 1
             runAsNonRoot: true
             runAsUser: 1
       runtimeClassName: rune

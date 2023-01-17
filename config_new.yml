@@ -24,7 +24,7 @@ steps:
        operationTimeout: 15m
 
  - module:
-     path: modules/access-type-test/main.yaml
+     path: modules/scheduling-strategy-test/main.yaml
      params:
        actionName: "create"
        namespaces: 1

@@ -19,6 +19,10 @@ spec:
         workload.es.io: deployment.scheduling-strategy-deploy2
         group: scheduling-strategy-test
     spec:
+      containers:
+        - image: 'hub.ecns.io/library/nginx:latest'
+          imagePullPolicy: IfNotPresent
+          name: scheduling-strategy-deploy2
       affinity:
         nodeAffinity:
           preferredDuringSchedulingIgnoredDuringExecution:

@@ -13,7 +13,7 @@ steps:
       labelSelector: group = volume-test
       operationTimeout: "300s"
 
-- name: Create volume-test-deploy deployment
+- name: Create volume-test-deploy PRE
   phases:
   - namespaceRange:
       min: 1
@@ -29,6 +29,17 @@ steps:
       objectTemplatePath: modules/volume-test/opaque-key.yaml
     - basename: dockerconfigjson-key
       objectTemplatePath: modules/volume-test/dockerconfigjson-key.yaml
+    - basename: volume-pvc
+      objectTemplatePath: modules/volume-test/volume-pvc.yaml
+      
+- name: Create volume-test-deploy
+  phases:
+  - namespaceRange:
+      min: 1
+      max: 1
+    replicasPerNamespace: 1
+    tuningSet: {{.tuningSet}}
+    objectBundle:
     - basename: volume-deploy
       objectTemplatePath: modules/volume-test/volume-deploy.yaml
 

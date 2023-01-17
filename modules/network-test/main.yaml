@@ -22,7 +22,7 @@ steps:
     tuningSet: {{.tuningSet}}
     objectBundle:
     - basename: ovn-deploy
-      objectTemplatePath: modules/label-test/ovn-deploy.yaml
+      objectTemplatePath: modules/network-test/ovn-deploy.yaml
 
 - name: Waiting for ovn-deploy application setup to be completed
   measurements:

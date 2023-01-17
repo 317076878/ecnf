@@ -25,5 +25,5 @@ spec:
   updateStrategy:
     rollingUpdate:
       partition: 0
-    type: RollingUpdate
+      type: RollingUpdate
       runtimeClassName: rune

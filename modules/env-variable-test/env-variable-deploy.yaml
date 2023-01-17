@@ -23,26 +23,26 @@ spec:
         - env:
             - name: CommonVariableKey
               value: CommonVariableValue
-            - name: ConfigMap
-              valueFrom:
-                configMapKeyRef:
-                  key: test
-                  name: test
-            - name: OpaqueKey
-              valueFrom:
-                secretKeyRef:
-                  key: test
-                  name: opaque-key
-            - name: TlsKey
-              valueFrom:
-                secretKeyRef:
-                  key: tls.crt
-                  name: tls-key
-            - name: DockerConfigJsonKey
-              valueFrom:
-                secretKeyRef:
-                  key: .dockerconfigjson
-                  name: dockerconfigjson-key
+           # - name: ConfigMap
+           #   valueFrom:
+           #     configMapKeyRef:
+           #       key: test
+           #       name: test
+           # - name: OpaqueKey
+           #   valueFrom:
+           #     secretKeyRef:
+           #       key: test
+           #       name: opaque-key
+           # - name: TlsKey
+           #   valueFrom:
+           #     secretKeyRef:
+           #       key: tls.crt
+           #       name: tls-key
+           # - name: DockerConfigJsonKey
+           #   valueFrom:
+           #     secretKeyRef:
+           #       key: .dockerconfigjson
+           #       name: dockerconfigjson-key
             - name: FieldRef1
               valueFrom:
                 fieldRef:

@@ -25,9 +25,9 @@ spec:
           name: security-setting-deploy3
           securityContext:
             readOnlyRootFilesystem: true
-            runAsGroup: 10
+            runAsGroup: 0
             runAsNonRoot: false
-            runAsUser: 10
+            runAsUser: 0
       runtimeClassName: rune
         
 

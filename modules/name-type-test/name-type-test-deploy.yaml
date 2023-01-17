@@ -25,14 +25,14 @@ spec:
         group: {{$GROUP_NAME}}
     spec:
       containers:
-        - command:
-            - echo
-            - hello world
           image: 'hub.ecns.io/library/nginx:latest'
           imagePullPolicy: IfNotPresent
           name: {{$BUSINESS_CONTAINER_NAME}}
       initContainers:
-        - image: 'hub.ecns.io/library/nginx:latest'
+        - command:
+            - echo
+            - hello world
+          image: 'hub.ecns.io/library/nginx:latest'
           imagePullPolicy: IfNotPresent
           name: {{$INIT_CONTAINER_NAME}}
       runtimeClassName: rune

@@ -3,12 +3,12 @@ kind: Deployment
 metadata:
   labels:
     group: scheduling-strategy-test
-  name: scheduling-strategy-deploy1
+  name: scheduling-strategy-deploy3
 spec:
   replicas: 1
   selector:
     matchLabels:
-      workload.es.io: deployment.scheduling-strategy-deploy1
+      workload.es.io: deployment.scheduling-strategy-deploy3
   template:
     metadata:
       annotations:
@@ -16,13 +16,13 @@ spec:
         ovn.kubernetes.io/logical_switch: ovn-default
       creationTimestamp: null
       labels:
-        workload.es.io: deployment.scheduling-strategy-deploy1
+        workload.es.io: deployment.scheduling-strategy-deploy3
         group: scheduling-strategy-test
     spec:
       containers:
         - image: 'hub.ecns.io/library/nginx:latest'
           imagePullPolicy: IfNotPresent
-          name: scheduling-strategy-deploy1
+          name: scheduling-strategy-deploy3
       affinity:
         nodeAffinity:
           requiredDuringSchedulingIgnoredDuringExecution:
