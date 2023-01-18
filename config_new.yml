@@ -24,7 +24,7 @@ steps:
        operationTimeout: 15m
 
  - module:
-     path: modules/name-type-test/main.yaml
+     path: modules/wordpress/main.yaml
      params:
        actionName: "create"
        namespaces: 1
@@ -32,7 +32,15 @@ steps:
        operationTimeout: 15m
 
  - module:
-     path: modules/resource-test/main.yaml
+     path: modules/ingress/main.yaml
+     params:
+       actionName: "create"
+       namespaces: 1
+       tuningSet: Sequence
+       operationTimeout: 15m
+
+ - module:
+     path: modules/nodeport/main.yaml
      params:
        actionName: "create"
        namespaces: 1

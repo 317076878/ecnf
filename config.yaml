@@ -55,13 +55,13 @@ steps:
        tuningSet: Sequence
        operationTimeout: 15m
 
- - module:
-     path: modules/health-check-test/main.yaml
-     params:
-       actionName: "create"
-       namespaces: 1
-       tuningSet: Sequence
-       operationTimeout: 15m
+# - module:
+#     path: modules/health-check-test/main.yaml
+#     params:
+#       actionName: "create"
+#       namespaces: 1
+#       tuningSet: Sequence
+#       operationTimeout: 15m
 
  - module:
      path: modules/security-setting-test/main.yaml
@@ -111,15 +111,13 @@ steps:
        tuningSet: Sequence
        operationTimeout: 15m
 
-
-
-# - module:
-#     path: modules/wordpress/main.yaml
-#     params:
-#       actionName: "create"
-#       namespaces: 1
-#       tuningSet: Sequence
-#       operationTimeout: 15m
+ - module:
+     path: modules/wordpress/main.yaml
+     params:
+       actionName: "create"
+       namespaces: 1
+       tuningSet: Sequence
+       operationTimeout: 15m
 
  - module:
     path: modules/clusterip/main.yaml
@@ -145,29 +143,29 @@ steps:
       tuningSet: Sequence
       operationTimeout: 15m
 
- - module:
-    path: modules/nginx-env/main.yaml
-    params:
-      actionName: "create"
-      namespaces: 1
-      tuningSet: Sequence
-      operationTimeout: 15m
-
- - module:
-    path: modules/nginx-html/main.yaml
-    params:
-      actionName: "create"
-      namespaces: 1
-      tuningSet: Sequence
-      operationTimeout: 15m
-
- - module:
-    path: modules/nginx-pvc/main.yaml
-    params:
-      actionName: "create"
-      namespaces: 1
-      tuningSet: Sequence
-      operationTimeout: 15m
+# - module:
+#    path: modules/nginx-env/main.yaml
+#    params:
+#      actionName: "create"
+#      namespaces: 1
+#      tuningSet: Sequence
+#      operationTimeout: 15m
+#
+# - module:
+#    path: modules/nginx-html/main.yaml
+#    params:
+#      actionName: "create"
+#      namespaces: 1
+#      tuningSet: Sequence
+#      operationTimeout: 15m
+#
+# - module:
+#    path: modules/nginx-pvc/main.yaml
+#    params:
+#      actionName: "create"
+#      namespaces: 1
+#      tuningSet: Sequence
+#      operationTimeout: 15m
 
 # - module:
 #    path: modules/test-demo/main.yaml

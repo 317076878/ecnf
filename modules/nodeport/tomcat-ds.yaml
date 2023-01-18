@@ -1,13 +1,13 @@
 apiVersion: apps/v1
 kind: DaemonSet
 metadata:
-  name: tomcat-ds
+  name: tomcat
   labels:
     group: nodeport
 spec:
   selector:
     matchLabels:
-      workload.es.io: daemonset.tomcat-ds
+      workload.es.io: daemonset.tomcat
   template:
     metadata:
       annotations:
@@ -15,7 +15,7 @@ spec:
         ovn.kubernetes.io/logical_switch: ovn-default
       creationTimestamp: null
       labels:
-        workload.es.io: daemonset.tomcat-ds
+        workload.es.io: daemonset.tomcat
         group: nodeport
     spec:
       containers:

@@ -5,10 +5,10 @@ metadata:
   annotations:
     ovn.kubernetes.io/vpc: ovn-cluster
     workload.es.io/kind: daemonset
-    workload.es.io/name: tomcat-ds
+    workload.es.io/name: tomcat
 spec:
   selector:
-    workload.es.io: daemonset.tomcat-svc
+    workload.es.io: daemonset.tomcat
   ports:
     - nodePort: 30889
       port: 8080

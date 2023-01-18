@@ -31,7 +31,7 @@ steps:
     objectBundle:
     - basename: nginx-svc
       objectTemplatePath: modules/nodeport/nginx-svc.yaml
-    - basename: nginx-deploy
+    - basename: nginx-dpm
       objectTemplatePath: modules/nodeport/nginx-dpm.yaml
 
 - name: Create httpd service and sts

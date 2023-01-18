@@ -5,7 +5,7 @@ metadata:
   annotations:
     ovn.kubernetes.io/vpc: ovn-cluster
     workload.es.io/kind: deployment
-    workload.es.io/name: nginx-dpm
+    workload.es.io/name: nginx
 spec:
   selector:
     workload.es.io: deployment.nginx

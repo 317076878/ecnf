@@ -5,7 +5,7 @@ metadata:
   annotations:
     ovn.kubernetes.io/vpc: ovn-cluster
     workload.es.io/kind: statefulset
-    workload.es.io/name: tomcat-sts
+    workload.es.io/name: tomcat
 spec:
   selector:
     workload.es.io: statefulset.tomcat
