@@ -10,7 +10,7 @@ steps:
         kind: Deployment
     Params:
       action: start
-      labelSelector: group = resource-test
+      labelSelector: group = health-check-test
       operationTimeout: "300s"
 
 - name: Create health-check-test-deploy deployment

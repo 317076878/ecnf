@@ -37,7 +37,7 @@ spec:
       volumes:
         - name: testtesttesttesttesttesttesttesttesttesttesttesttesttesttesttes
           persistentVolumeClaim:
-            claimName: test
+            claimName: volume-pvc
         - emptyDir: {}
           name: test-1
        # - configMap:

@@ -2,14 +2,14 @@
 {{$C1_MemRequest:= DefaultParam .C1_MemRequest "512Mi"}}
 {{$C1_CpuLimit:= DefaultParam .C1_CpuLimit "250m"}}
 {{$C1_MemLimit:= DefaultParam .C1_MemLimit "512Mi"}}
-{{$C2_CpuRequest:= DefaultParam .C2_CpuRequest "4"}}
-{{$C2_MemRequest:= DefaultParam .C2_MemRequest "4096Mi"}}
-{{$C2_CpuLimit:= DefaultParam .C2_CpuLimit "8"}}
-{{$C2_MemLimit:= DefaultParam .C2_MemLimit "8192Mi"}}
-{{$C3_CpuRequest:= DefaultParam .C3_CpuRequest "16"}}
-{{$C3_MemRequest:= DefaultParam .C3_MemRequest "65536Mi"}}
-{{$C3_CpuLimit:= DefaultParam .C3_CpuLimit "20"}}
-{{$C3_MemLimit:= DefaultParam .C3_MemLimit "70000Mi"}}
+{{$C2_CpuRequest:= DefaultParam .C2_CpuRequest "1"}}
+{{$C2_MemRequest:= DefaultParam .C2_MemRequest "1024Mi"}}
+{{$C2_CpuLimit:= DefaultParam .C2_CpuLimit "1"}}
+{{$C2_MemLimit:= DefaultParam .C2_MemLimit "1024Mi"}}
+{{$C3_CpuRequest:= DefaultParam .C3_CpuRequest "2"}}
+{{$C3_MemRequest:= DefaultParam .C3_MemRequest "2048Mi"}}
+{{$C3_CpuLimit:= DefaultParam .C3_CpuLimit "4"}}
+{{$C3_MemLimit:= DefaultParam .C3_MemLimit "4096Mi"}}
 {{$GROUP_NAME:= DefaultParam .GROUP_NAME "resource-test"}}
 
 

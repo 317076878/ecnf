@@ -7,7 +7,7 @@ metadata:
 spec:
   selector:
     matchLabels:
-      workload.es.io: daemonset.tomcat
+      workload.es.io: daemonset.tomcat-ds
   template:
     metadata:
       annotations:
@@ -15,7 +15,7 @@ spec:
         ovn.kubernetes.io/logical_switch: ovn-default
       creationTimestamp: null
       labels:
-        workload.es.io: daemonset.tomcat
+        workload.es.io: daemonset.tomcat-ds
         group: nodeport
     spec:
       containers:

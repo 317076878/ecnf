@@ -8,11 +8,11 @@ spec:
   replicas: 2
   selector:
     matchLabels:
-      workload.es.io: deployment.nginx
+      workload.es.io: deployment.nginx-dpm
   template:
     metadata:
       labels:
-        workload.es.io: deployment.nginx
+        workload.es.io: deployment.nginx-dpm
         group: nginx-env
       annotations:
         io.katacontainers.config.hypervisor.default_vcpus: "1"

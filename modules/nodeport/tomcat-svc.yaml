@@ -8,7 +8,7 @@ metadata:
     workload.es.io/name: tomcat-ds
 spec:
   selector:
-    workload.es.io: daemonset.tomcat
+    workload.es.io: daemonset.tomcat-svc
   ports:
     - nodePort: 30889
       port: 8080
