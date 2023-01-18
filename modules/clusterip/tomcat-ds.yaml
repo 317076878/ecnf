@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: DaemonSet
 metadata:
-  name: tomcat-ds
+  name: tomcat
   labels:
     group: cluster-ip
 spec:

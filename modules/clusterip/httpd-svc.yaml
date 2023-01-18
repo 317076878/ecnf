@@ -5,7 +5,7 @@ metadata:
   annotations:
     ovn.kubernetes.io/vpc: ovn-cluster
     workload.es.io/kind: statefulset
-    workload.es.io/name: httpd-sts
+    workload.es.io/name: httpd
 spec:
   selector:
     workload.es.io: statefulset.httpd

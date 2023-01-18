@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: nginx-dpm
+  name: nginx
   labels:
     group: cluster-ip
 spec:

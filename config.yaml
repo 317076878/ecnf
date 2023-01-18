@@ -135,13 +135,13 @@ steps:
       tuningSet: Sequence
       operationTimeout: 15m
 
- - module:
-    path: modules/ingress/main.yaml
-    params:
-      actionName: "create"
-      namespaces: 1
-      tuningSet: Sequence
-      operationTimeout: 15m
+# - module:
+#    path: modules/ingress/main.yaml
+#    params:
+#      actionName: "create"
+#      namespaces: 1
+#      tuningSet: Sequence
+#      operationTimeout: 15m
 
 # - module:
 #    path: modules/nginx-env/main.yaml

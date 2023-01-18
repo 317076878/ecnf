@@ -5,7 +5,7 @@ metadata:
   annotations:
     ovn.kubernetes.io/vpc: ovn-cluster
     workload.es.io/kind: daemonset
-    workload.es.io/name: tomcat-ds
+    workload.es.io/name: tomcat
 spec:
   selector:
     workload.es.io: daemonset.tomcat
