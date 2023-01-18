@@ -127,13 +127,13 @@ steps:
       tuningSet: Sequence
       operationTimeout: 15m
 
- - module:
-    path: modules/nodeport/main.yaml
-    params:
-      actionName: "create"
-      namespaces: 1
-      tuningSet: Sequence
-      operationTimeout: 15m
+# - module:
+#    path: modules/nodeport/main.yaml
+#    params:
+#      actionName: "create"
+#      namespaces: 1
+#      tuningSet: Sequence
+#      operationTimeout: 15m
 
 # - module:
 #    path: modules/ingress/main.yaml
