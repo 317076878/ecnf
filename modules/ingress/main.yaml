@@ -4,11 +4,11 @@ steps:
   measurements:
   - Method: WaitForControlledPodsRunning
     Instances:
-    - Identifier: WaitForRunningStatefulSets
+    - Identifier: WaitForIngressStatefulSets
       Params:
         apiVersion: apps/v1
         kind: StatefulSet
-    - Identifier: WaitForRunningDeployments
+    - Identifier: WaitForIngressDeployments
       Params:
         apiVersion: apps/v1
         kind: Deployment
@@ -47,8 +47,8 @@ steps:
   measurements:
   - Method: WaitForControlledPodsRunning
     Instances:
-    - Identifier: WaitForRunningStatefulSets
-    - Identifier: WaitForRunningDeployments
+    - Identifier: WaitForIngressStatefulSets
+    - Identifier: WaitForIngressDeployments
     Params:
       action: gather
 

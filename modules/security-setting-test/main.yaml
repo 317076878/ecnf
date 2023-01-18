@@ -4,7 +4,7 @@ steps:
   measurements:
   - Method: WaitForControlledPodsRunning
     Instances:
-    - Identifier: WaitForRunningDeployments
+    - Identifier: WaitForSecuritySettingTestDeployments
       Params:
         apiVersion: apps/v1
         kind: Deployment
@@ -32,7 +32,7 @@ steps:
   measurements:
   - Method: WaitForControlledPodsRunning
     Instances:
-    - Identifier: WaitForRunningDeployments
+    - Identifier: WaitForSecuritySettingTestDeployments
     Params:
       action: gather
 

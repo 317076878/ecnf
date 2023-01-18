@@ -4,7 +4,7 @@ steps:
   measurements:
   - Method: WaitForControlledPodsRunning
     Instances:
-    - Identifier: NameTypeTest
+    - Identifier: WaitForNameTypeTestDeployments
       Params:
         apiVersion: apps/v1
         kind: Deployment
@@ -28,7 +28,7 @@ steps:
   measurements:
   - Method: WaitForControlledPodsRunning
     Instances:
-    - Identifier: NameTypeTest
+    - Identifier: WaitForNameTypeTestDeployments
     Params:
       action: gather
 

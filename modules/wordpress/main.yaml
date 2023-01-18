@@ -4,11 +4,11 @@ steps:
   measurements:
   - Method: WaitForControlledPodsRunning
     Instances:
-    - Identifier: WaitForRunningStatefulSets
+    - Identifier: WaitForWordpressStatefulSets
       Params:
         apiVersion: apps/v1
         kind: StatefulSet
-    - Identifier: WaitForRunningDeployments
+    - Identifier: WaitForWordpressDeployments
       Params:
         apiVersion: apps/v1
         kind: Deployment
@@ -69,8 +69,8 @@ steps:
   measurements:
   - Method: WaitForControlledPodsRunning
     Instances:
-    - Identifier: WaitForRunningStatefulSets
-    - Identifier: WaitForRunningDeployments
+    - Identifier: WaitForWordpressStatefulSets
+    - Identifier: WaitForWordpressDeployments
     Params:
       action: gather
 

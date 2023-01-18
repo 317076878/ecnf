@@ -4,7 +4,7 @@ steps:
   measurements:
   - Method: WaitForControlledPodsRunning
     Instances:
-    - Identifier: WaitForRunningDeployments
+    - Identifier: WaitForUpgradeVolumeTestDeployments
       Params:
         apiVersion: apps/v1
         kind: Deployment
@@ -41,7 +41,7 @@ steps:
     tuningSet: {{.tuningSet}}
     objectBundle:
     - basename: volume-deploy
-      objectTemplatePath: modules/volume-test/volume-deploy.yaml
+      objectTemplatePath: modules/VolumeTest/volume-deploy.yaml
 
 - name: Waiting for volume-test-deploy application setup to be completed
   measurements:
