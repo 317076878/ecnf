@@ -6,7 +6,7 @@ metadata:
     group: cluster-ip
 spec:
   podManagementPolicy: OrderedReady
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       workload.es.io: statefulset.httpd
